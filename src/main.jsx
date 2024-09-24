@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignupPage from "./signup/SignupPage";
+import SignupPage from "./components/signup/SignupPage";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import SignupForm from "./signup/SignupForm";
+import SignupForm from "./components/signup/SignupForm";
 
 const theme = createTheme({
   typography: {
