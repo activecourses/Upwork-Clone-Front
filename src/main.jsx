@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignupPage from "./signup/SignupPage";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import SignupForm from "./signup/SignupForm";
+import Login from "./login/login";
 
 const theme = createTheme({
   typography: {
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<SignupPage />} />
           <Route path="/signup" element={<SignupForm />} />
+          <Route path="/login" element={<Login/>} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
