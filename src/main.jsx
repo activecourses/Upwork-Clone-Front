@@ -15,7 +15,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Header />
+        <header>
+          <Header />
+        </header>
         <Routes>
           <Route path="/" element={<SignupPage />} />
           <Route path="/signup" element={<SignupForm />} />
