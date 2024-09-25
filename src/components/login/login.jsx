@@ -109,6 +109,19 @@ export default function Login () {
     Sign Up
   </Link>
 </Typography>
+<Typography variant="body2">
+  <Link
+    to="/reset-password"
+    
+    underline="hover" // No underline by default
+    sx={{
+      color: '#129900', // Custom color for the link
+    }}
+  >
+    Forget your password ?
+  </Link>
+</Typography>
+
       </Box>
     </Box>
         </div>
