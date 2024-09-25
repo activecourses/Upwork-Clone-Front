@@ -102,7 +102,7 @@ export default function Login() {
               href="/reset-password"
               underline="hover" // No underline by default
             >
-              Forgot Password ?
+              Forgot Password?
             </Link>
           </Typography>
         </Box>
