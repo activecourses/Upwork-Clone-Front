@@ -80,13 +80,29 @@ export default function Login() {
         >
           Login
         </Button>
-        <Box sx={{ textAlign: "center", mt: 2 }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            mt: 2,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
           <Typography variant="body2">
             <Link
               href="/signup"
               underline="hover" // No underline by default
             >
               Sign Up
+            </Link>
+          </Typography>
+          <Typography variant="body2">
+            <Link
+              href="/reset-password"
+              underline="hover" // No underline by default
+            >
+              Forgot Password ?
             </Link>
           </Typography>
         </Box>
