@@ -21,7 +21,7 @@ const SignupPage = () => {
     <>
       <Container sx={{ display: "flex", justifyContent: "center" }}>
         <ClickableCard
-          width={250}
+          width={255}
           height={220}
           my={20}
           text={"I'm a freelancer looking for work"}
@@ -67,8 +67,8 @@ const SignupPage = () => {
           {activeCard === 0
             ? "Apply as a Freelancer"
             : activeCard === 1
-            ? "Join as a Client"
-            : "Apply"}
+              ? "Join as a Client"
+              : "Apply"}
         </Button>
       </Container>
     </>

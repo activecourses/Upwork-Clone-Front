@@ -10,6 +10,7 @@ import PasswordSent from "./components/resetpassword/PasswordSent";
 import theme from "./styles/theme";
 import Login from "./components/login/login";
 import Header from "./components/login/loginHeader";
+import { SettingsPage } from "./components/settings/SettingsPage";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -29,6 +30,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="/reset-password" element={<ResetPasswordRequest />} />
           <Route path="/password-sent" element={<PasswordSent />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/settings/*" element={<SettingsPage />} />
+
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

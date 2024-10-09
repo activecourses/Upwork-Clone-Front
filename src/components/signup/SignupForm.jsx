@@ -19,6 +19,8 @@ const SignupForm = () => {
     }
   };
 
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -143,6 +145,7 @@ const SignupForm = () => {
       >
         Create my account
       </Button>
+
 
       <Link
         href={"/login"}
