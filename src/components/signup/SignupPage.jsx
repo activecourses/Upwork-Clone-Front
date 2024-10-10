@@ -12,9 +12,9 @@ const SignupPage = () => {
   const handleCardClick = (cardIndex) => {
     setActiveCard((prev) => (prev === cardIndex ? null : cardIndex));
   };
-
   const onSubmit = () => {
-    navigate("/signup");
+    const role = activeCard === 0 ? "freelancer"  : "client" ; 
+    navigate("/signup" , {state: {role}});
   };
 
   return (

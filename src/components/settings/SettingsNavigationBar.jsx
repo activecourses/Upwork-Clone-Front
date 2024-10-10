@@ -7,12 +7,7 @@ const BILLING = '/settings/billing-payments';
 const INFO = '/settings/contact-info';
 const drawerWidth = 220;
 
-
-
 const SideNavigationBar = () => {
-
-
-
   return (
     <>
       <aside>

@@ -1,13 +1,23 @@
 import { Box } from "@mui/system";
 import { useState } from "react";
-import { Link, TextField, Typography, Button } from "@mui/material";
+import {
+  Link,
+  Container,
+  TextField,
+  Typography,
+  Button,
+  Grid,
+} from "@mui/material";
+import { useLocation } from "react-router-dom";
 import { grey, green } from "@mui/material/colors";
 
 const SignupForm = () => {
   const [errors, setErrors] = useState({});
+  const { role } = location.state || {};
 
   const [formData, setFormData] = useState({
-    username: "",
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
   });
@@ -16,10 +26,9 @@ const SignupForm = () => {
     e.preventDefault();
     if (validate()) {
       console.log("Form Submitted: ", formData);
+      console.log(role);
     }
   };
-
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,19 +40,29 @@ const SignupForm = () => {
   };
 
   // input validation function
-  const validateUsername = (username) => {
-    const usernameRegex = /^(?![0-9])\S+$/;
-    return usernameRegex.test(username);
+  const validatename = (name) => {
+    const nameRegex = /^[A-Za-z'-]+$/;
+    return nameRegex.test(name);
   };
 
   const validate = () => {
     let totalErrors = {};
-    if (!formData.username) {
-      totalErrors.username = "Username is Required !!";
-    } else if (!validateUsername(formData.username)) {
-      totalErrors.username =
-        "Username must not start wit a number and cannot contain spaces.";
+
+    if (!formData.lastname) {
+      totalErrors.lastname = "last name is Required !!";
+    } else if (!validatename(formData.lastname)) {
+      totalErrors.lastname =
+        "last name shouldn't contain any numbers or spaces";
     }
+    //--------------------------------------------------------------//
+
+    if (!formData.firstname) {
+      totalErrors.firstname = "firstname is Required !!";
+    } else if (!validatename(formData.firstname)) {
+      totalErrors.firstname =
+        "first name shouldn't contian any numbers or spaces";
+    }
+
     if (!formData.email) {
       totalErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -101,17 +120,37 @@ const SignupForm = () => {
         Sign Up
       </Typography>
 
-      <TextField
-        name="username"
-        label="Username"
-        type="text"
-        value={formData.username}
-        onChange={handleChange}
-        margin="normal"
-        error={!!errors.username}
-        helperText={errors.username || "eg. Zeyad_H"}
-        required
-      />
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <TextField
+            name="firstname"
+            label="first name"
+            type="text"
+            value={formData.firstname}
+            onChange={handleChange}
+            margin="normal"
+            error={!!errors.firstname}
+            helperText={errors.firstname || "eg. John"}
+            sx={{ marginX: 1 }}
+            required
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            name="lastname"
+            label="Last name"
+            type="text"
+            value={formData.lastname}
+            onChange={handleChange}
+            margin="normal"
+            error={!!errors.lastname}
+            helperText={errors.lastname || "eg. Doe"}
+            required
+            fullWidth
+          />
+        </Grid>
+      </Grid>
 
       <TextField
         name="email"
@@ -145,7 +184,6 @@ const SignupForm = () => {
       >
         Create my account
       </Button>
-
 
       <Link
         href={"/login"}
