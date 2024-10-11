@@ -52,7 +52,7 @@ const SignupForm = () => {
       totalErrors.lastname = "last name is Required !!";
     } else if (!validatename(formData.lastname)) {
       totalErrors.lastname =
-        "last name shouldn't contain any numbers or spaces";
+        "last name shouldn't contain any numbers , spaces or special characters!" ;
     }
     //--------------------------------------------------------------//
 
@@ -60,7 +60,7 @@ const SignupForm = () => {
       totalErrors.firstname = "firstname is Required !!";
     } else if (!validatename(formData.firstname)) {
       totalErrors.firstname =
-        "first name shouldn't contian any numbers or spaces";
+        "first name shouldn't contain any numbers , spaces or special characters!" ;
     }
 
     if (!formData.email) {
