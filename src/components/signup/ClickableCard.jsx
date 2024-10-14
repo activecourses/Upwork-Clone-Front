@@ -20,13 +20,14 @@ const ClickableCard = ({
   my,
   text,
   isHovered,
-  isActive,
+  isactive,
   onClick,
   Icon,
+  ...rest
 }) => {
   return (
     <StyledCard
-      isActive={isActive}
+      isActive={isactive}
       onClick={onClick}
       sx={{
         width: width,
@@ -37,6 +38,7 @@ const ClickableCard = ({
           border: isHovered ? "2px solid green" : "2px solid lightGrey",
         },
       }}
+      {...rest}
     >
       <Icon sx={{ p: 2 }} />
       <CardContent>

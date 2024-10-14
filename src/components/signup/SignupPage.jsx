@@ -6,7 +6,9 @@ import TerminalRoundedIcon from "@mui/icons-material/TerminalRounded";
 import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
 import { useNavigate } from "react-router-dom";
 
+
 const SignupPage = () => {
+  const [userType , setUserType] = useState("") ; 
   const [activeCard, setActiveCard] = useState(null);
   const navigate = useNavigate();
   const handleCardClick = (cardIndex) => {
@@ -14,7 +16,7 @@ const SignupPage = () => {
   };
   const onSubmit = () => {
     const role = activeCard === 0 ? "freelancer"  : "client" ; 
-    navigate("/signup" , {state: {role}});
+    navigate(`/signup/${userType}` , {state: {role}});
   };
 
   return (
@@ -27,7 +29,9 @@ const SignupPage = () => {
           text={"I'm a freelancer looking for work"}
           isHovered={activeCard === null || activeCard === 0}
           isActive={activeCard === 0}
-          onClick={() => handleCardClick(0)}
+          onClick={() => {
+            handleCardClick(0);
+            setUserType("freelancer");}}
           Icon={TerminalRoundedIcon}
         />
         <Box sx={{ width: "50px" }}></Box>
@@ -38,7 +42,9 @@ const SignupPage = () => {
           text={"I'm a client, hiring for a project"}
           isHovered={activeCard === null || activeCard === 1}
           isActive={activeCard === 1}
-          onClick={() => handleCardClick(1)}
+          onClick={() => {
+            handleCardClick(1) ; 
+          setUserType("client") ; }}
           Icon={WorkOutlineRoundedIcon}
         />
       </Container>
