@@ -26,6 +26,7 @@ const SignupForm = () => {
     if (validate()) {
       console.log("Form Submitted: ", formData);
       console.log(`user type: ${userType}`) ; 
+      // POST REQUEST FOR THE BACKEND GOES HERE ....
     }
   };
 
