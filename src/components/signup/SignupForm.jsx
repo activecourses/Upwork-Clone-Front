@@ -1,19 +1,18 @@
 import { Box } from "@mui/system";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   Link,
-  Container,
   TextField,
   Typography,
   Button,
   Grid,
 } from "@mui/material";
-import { useLocation } from "react-router-dom";
 import { grey, green } from "@mui/material/colors";
 
 const SignupForm = () => {
   const [errors, setErrors] = useState({});
-  const { role } = location.state || {};
+  const {userType}  = useParams() ; 
 
   const [formData, setFormData] = useState({
     firstname: "",
@@ -26,7 +25,8 @@ const SignupForm = () => {
     e.preventDefault();
     if (validate()) {
       console.log("Form Submitted: ", formData);
-      console.log(role);
+      console.log(`user type: ${userType}`) ; 
+      // POST REQUEST FOR THE BACKEND GOES HERE ....
     }
   };
 

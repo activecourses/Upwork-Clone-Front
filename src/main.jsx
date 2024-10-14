@@ -21,7 +21,7 @@ createRoot(document.getElementById("root")).render(
         </header>
         <Routes>
           <Route path="/" element={<SignupPage />} />
-          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/signup/:userType" element={<SignupForm />} />
 
           <Route
             path="/reset-password/:token"
