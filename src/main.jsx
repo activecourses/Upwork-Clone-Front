@@ -11,6 +11,7 @@ import theme from "./styles/theme";
 import Login from "./components/login/login";
 import Header from "./components/login/loginHeader";
 import { SettingsPage } from "./components/settings/SettingsPage";
+import HomePage from "./components/home/HomePage";
 import { CssBaseline } from "@mui/material";
 
 createRoot(document.getElementById("root")).render(
@@ -19,11 +20,10 @@ createRoot(document.getElementById("root")).render(
     <CssBaseline />
       <BrowserRouter>
           <Header />
-        </header>
         <Routes>
           <Route path="/" element={<SignupPage />} />
           <Route path="/signup/:userType" element={<SignupForm />} />
-
+          <Route path="/home" element={<HomePage/>} />
           <Route
             path="/reset-password/:token"
             element={<ResetPasswordConfirm />}

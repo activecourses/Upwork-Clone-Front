@@ -1,5 +1,5 @@
+import { Route, Routes } from "react-router-dom";
 import SideNavigationBar from "./SettingsNavigationBar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Container } from "@mui/material";
 
