@@ -9,6 +9,24 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          margin: 0,
+          padding: 0,
+          boxSizing: "border-box",
+          minHeight: "100vh",
+
+        },
+        "#root": {
+          minHeight: "100vh",
+          display:"flex",
+          flexDirection:"column"
+          
+
+        }
+      },
+    },
     MuiPaper: {
       styleOverrides: {
         root: {

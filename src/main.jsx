@@ -11,12 +11,13 @@ import theme from "./styles/theme";
 import Login from "./components/login/login";
 import Header from "./components/login/loginHeader";
 import { SettingsPage } from "./components/settings/SettingsPage";
+import { CssBaseline } from "@mui/material";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
+    <CssBaseline />
       <BrowserRouter>
-        <header>
           <Header />
         </header>
         <Routes>
