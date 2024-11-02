@@ -1,14 +1,9 @@
+import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-import {
-  Link,
-  TextField,
-  Typography,
-  Button,
-  Grid,
-} from "@mui/material";
-import { grey, green } from "@mui/material/colors";
+import { Link as RouterLink, useParams } from "react-router-dom";
+
+import { green, grey } from "@mui/material/colors";
 
 const SignupForm = () => {
   const [errors, setErrors] = useState({});
@@ -186,8 +181,9 @@ const SignupForm = () => {
       </Button>
 
       <Link
-        href={"/login"}
+        to={"/login"}
         variant="body2"
+        component={RouterLink}
         underline="hover"
         sx={{ m: 2, fontSize: 15 }}
       >

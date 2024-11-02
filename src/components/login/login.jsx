@@ -1,6 +1,6 @@
-import { Link, Box, TextField, Button, Typography, Paper } from "@mui/material";
+import { Box, Button, Link, Paper, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-
+import { Link as RouterLink } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, serPassword] = useState("");
@@ -91,7 +91,8 @@ export default function Login() {
         >
           <Typography variant="body2">
             <Link
-              href="/signup"
+              component={RouterLink}
+              to={"/"}
               underline="hover" // No underline by default
             >
               Sign Up
@@ -99,7 +100,8 @@ export default function Login() {
           </Typography>
           <Typography variant="body2">
             <Link
-              href="/reset-password"
+              component={RouterLink}
+              to={"/reset-password"}
               underline="hover" // No underline by default
             >
               Forgot Password ?
