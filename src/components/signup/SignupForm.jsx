@@ -1,26 +1,26 @@
-import { Button, Grid, Link, TextField, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { useState } from "react";
-import { Link as RouterLink, useParams } from "react-router-dom";
+import { Button, Grid, Link, TextField, Typography } from '@mui/material';
+import { Box } from '@mui/system';
+import { useState } from 'react';
+import { Link as RouterLink, useParams } from 'react-router-dom';
 
-import { green, grey } from "@mui/material/colors";
+import { green, grey } from '@mui/material/colors';
 
 const SignupForm = () => {
   const [errors, setErrors] = useState({});
-  const {userType}  = useParams() ; 
+  const { userType } = useParams();
 
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form Submitted: ", formData);
-      console.log(`user type: ${userType}`) ; 
+      console.log('Form Submitted: ', formData);
+      console.log(`user type: ${userType}`);
       // POST REQUEST FOR THE BACKEND GOES HERE ....
     }
   };
@@ -31,7 +31,7 @@ const SignupForm = () => {
       ...formData,
       [name]: value,
     });
-    setErrors({ ...errors, [name]: "" });
+    setErrors({ ...errors, [name]: '' });
   };
 
   // input validation function
@@ -44,29 +44,29 @@ const SignupForm = () => {
     let totalErrors = {};
 
     if (!formData.lastname) {
-      totalErrors.lastname = "last name is Required !!";
+      totalErrors.lastname = 'last name is Required !!';
     } else if (!validatename(formData.lastname)) {
       totalErrors.lastname =
-        "last name shouldn't contain any numbers , spaces or special characters!" ;
+        "last name shouldn't contain any numbers , spaces or special characters!";
     }
     //--------------------------------------------------------------//
 
     if (!formData.firstname) {
-      totalErrors.firstname = "firstname is Required !!";
+      totalErrors.firstname = 'firstname is Required !!';
     } else if (!validatename(formData.firstname)) {
       totalErrors.firstname =
-        "first name shouldn't contain any numbers , spaces or special characters!" ;
+        "first name shouldn't contain any numbers , spaces or special characters!";
     }
 
     if (!formData.email) {
-      totalErrors.email = "Email is required";
+      totalErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      totalErrors.email = "Email is invalid";
+      totalErrors.email = 'Email is invalid';
     }
     if (!formData.password) {
-      totalErrors.password = "Password is required";
+      totalErrors.password = 'Password is required';
     } else if (formData.password.length < 6) {
-      totalErrors.password = "Password must be at least 6 characters";
+      totalErrors.password = 'Password must be at least 6 characters';
     }
     setErrors(totalErrors);
     return Object.keys(totalErrors).length === 0;
@@ -75,40 +75,40 @@ const SignupForm = () => {
   //form Structure
   return (
     <Box
-      className="form-container"
-      component="form"
+      className='form-container'
+      component='form'
       onSubmit={handleSubmit}
       sx={{
-        display: "flex",
-        flexDirection: "column",
+        display: 'flex',
+        flexDirection: 'column',
         maxWidth: 400,
-        mx: "auto",
+        mx: 'auto',
         my: 10,
-        justifyContent: "center",
+        justifyContent: 'center',
         p: 2,
-        border: "1px solid",
-        borderRadius: "8px",
+        border: '1px solid',
+        borderRadius: '8px',
         borderColor: grey[300],
-        boxShadow: "0px 10px 14px rgba(0,0,0,0.2)",
+        boxShadow: '0px 10px 14px rgba(0,0,0,0.2)',
       }}
     >
       <Typography
-        variant="h6"
+        variant='h6'
         gutterBottom
         sx={{
-          textAlign: "center",
+          textAlign: 'center',
           fontSize: 33,
-          fontWeight: "normal",
+          fontWeight: 'normal',
           color: green[700],
-          position: "relative",
-          display: "inline-block",
-          "&::after": {
+          position: 'relative',
+          display: 'inline-block',
+          '&::after': {
             content: '""',
-            display: "block",
-            width: "20%",
-            height: "2px",
+            display: 'block',
+            width: '20%',
+            height: '2px',
             backgroundColor: green[700],
-            margin: "8px auto 0",
+            margin: '8px auto 0',
           },
         }}
       >
@@ -118,14 +118,14 @@ const SignupForm = () => {
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <TextField
-            name="firstname"
-            label="first name"
-            type="text"
+            name='firstname'
+            label='first name'
+            type='text'
             value={formData.firstname}
             onChange={handleChange}
-            margin="normal"
+            margin='normal'
             error={!!errors.firstname}
-            helperText={errors.firstname || "eg. John"}
+            helperText={errors.firstname || 'eg. John'}
             sx={{ marginX: 1 }}
             required
             fullWidth
@@ -133,14 +133,14 @@ const SignupForm = () => {
         </Grid>
         <Grid item xs={6}>
           <TextField
-            name="lastname"
-            label="Last name"
-            type="text"
+            name='lastname'
+            label='Last name'
+            type='text'
             value={formData.lastname}
             onChange={handleChange}
-            margin="normal"
+            margin='normal'
             error={!!errors.lastname}
-            helperText={errors.lastname || "eg. Doe"}
+            helperText={errors.lastname || 'eg. Doe'}
             required
             fullWidth
           />
@@ -148,31 +148,31 @@ const SignupForm = () => {
       </Grid>
 
       <TextField
-        name="email"
-        label="Email"
-        type="text"
+        name='email'
+        label='Email'
+        type='text'
         value={formData.email}
         onChange={handleChange}
-        margin="normal"
+        margin='normal'
         error={!!errors.email}
-        helperText={errors.email || "eg: zeyad@example.com"}
+        helperText={errors.email || 'eg: zeyad@example.com'}
         required
       />
       <TextField
-        name="password"
-        label="Password"
-        type="password"
+        name='password'
+        label='Password'
+        type='password'
         value={formData.password}
         onChange={handleChange}
         error={!!errors.password}
-        margin="normal"
-        helperText={errors.password || "password must be atleast 6 characters"}
+        margin='normal'
+        helperText={errors.password || 'password must be atleast 6 characters'}
         required
       />
 
       <Button
-        type="submit"
-        variant="contained"
+        type='submit'
+        variant='contained'
         sx={{
           mt: 2,
         }}
@@ -181,10 +181,10 @@ const SignupForm = () => {
       </Button>
 
       <Link
-        to={"/login"}
-        variant="body2"
+        to={'/login'}
+        variant='body2'
         component={RouterLink}
-        underline="hover"
+        underline='hover'
         sx={{ m: 2, fontSize: 15 }}
       >
         Already have an account?

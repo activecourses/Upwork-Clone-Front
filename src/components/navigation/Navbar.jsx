@@ -1,17 +1,17 @@
-import styled from "@emotion/styled";
-import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import styled from '@emotion/styled';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 /** TODO:
  * Login button
  * signup button with primary color
  */
 const StyledButton = styled(Button)({
-  padding: ".5rem 1rem",
-  fontWeight: "normal",
-  "& a": {
-    textDecoration: "none",
-    color: "inherit",
+  padding: '.5rem 1rem',
+  fontWeight: 'normal',
+  '& a': {
+    textDecoration: 'none',
+    color: 'inherit',
   },
 });
 const NonUserNavbar = () => {
@@ -19,22 +19,22 @@ const NonUserNavbar = () => {
     <nav>
       <StyledButton
         sx={{
-          backgroundColor: "white",
-          color: "black",
-          marginRight: "1rem",
-          "&:hover": {
-            color: "white",
+          backgroundColor: 'white',
+          color: 'black',
+          marginRight: '1rem',
+          '&:hover': {
+            color: 'white',
           },
         }}
       >
-        <Link to={"/login"}>Login</Link>
+        <Link to={'/login'}>Login</Link>
       </StyledButton>
       <StyledButton
         sx={{
-          color: "white",
+          color: 'white',
         }}
       >
-        <Link to={"/"}>Signup</Link>
+        <Link to={'/'}>Signup</Link>
       </StyledButton>
     </nav>
   );

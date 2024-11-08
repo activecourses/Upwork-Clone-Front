@@ -1,11 +1,11 @@
-import { createTheme } from "@mui/material";
-import "@fontsource/rubik";
-import { red, green } from "@mui/material/colors";
+import { createTheme } from '@mui/material';
+import '@fontsource/rubik';
+import { red, green } from '@mui/material/colors';
 
 const theme = createTheme({
   typography: {
     allVariants: {
-      fontFamily: "Rubik",
+      fontFamily: 'Rubik',
     },
   },
   components: {
@@ -14,17 +14,14 @@ const theme = createTheme({
         body: {
           margin: 0,
           padding: 0,
-          boxSizing: "border-box",
-          minHeight: "100vh",
-
+          boxSizing: 'border-box',
+          minHeight: '100vh',
         },
-        "#root": {
-          minHeight: "100vh",
-          display:"flex",
-          flexDirection:"column"
-          
-
-        }
+        '#root': {
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+        },
       },
     },
     MuiPaper: {
@@ -39,7 +36,7 @@ const theme = createTheme({
         root: {
           backgroundColor: green[900],
           borderRadius: 17,
-          "&:hover": { backgroundColor: green[700] },
+          '&:hover': { backgroundColor: green[700] },
         },
       },
     },
@@ -47,10 +44,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: green[600],
-          "&:hover": {
+          '&:hover': {
             color: green[900],
           },
-          "&:visited": {
+          '&:visited': {
             color: red[900],
           },
         },
