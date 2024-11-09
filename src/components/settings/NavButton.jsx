@@ -1,9 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-
-
-
 const NavButton = ({ to, children }) => {
   const location = useLocation();
 
@@ -16,26 +13,27 @@ const NavButton = ({ to, children }) => {
         component={Link}
         to={to}
         sx={{
-          fontSize: "12px",
-          textDecoration: "none",
-          marginY: "12px",
-          backgroundColor: "transparent",
-          color: isSelected(to) ? "black" : "lightgrey",
-          fontWeight: "bold",
-          border: isSelected(to) ? "3px  solid lightgreen" : "none",
-          borderRight: "none",
-          borderTop: "none",
-          borderBottom: "none",
+          fontSize: '12px',
+          textDecoration: 'none',
+          marginY: '12px',
+          backgroundColor: 'transparent',
+          color: isSelected(to) ? 'black' : 'lightgrey',
+          fontWeight: 'bold',
+          border: isSelected(to) ? '3px  solid lightgreen' : 'none',
+          borderRight: 'none',
+          borderTop: 'none',
+          borderBottom: 'none',
           borderRadius: 0,
           '&:hover': {
-            backgroundColor: "transparent",
-            color: "black",
-          }
+            backgroundColor: 'transparent',
+            color: 'black',
+          },
         }}
-      > {children}</Button>
-
+      >
+        {' '}
+        {children}
+      </Button>
     </>
   );
-
-}
+};
 export default NavButton;

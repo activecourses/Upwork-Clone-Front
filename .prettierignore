@@ -1,0 +1,7 @@
+# Ignore all build and dependency folders
+node_modules
+build
+dist
+
+# Ignore specific files
+package-lock.json
