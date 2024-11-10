@@ -9,6 +9,7 @@
     "format:lint": "npm run format && npm run lint:fix",
     "format": "prettier --write .",
     "lint": "eslint .",
+    "type-check": "tsc --noEmit",
     "lint:fix": "eslint .  --fix",
     "preview": "vite preview"
   },
