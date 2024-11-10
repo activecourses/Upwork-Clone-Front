@@ -1,10 +1,15 @@
-import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
+import { ReactNode } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-const NavButton = ({ to, children }) => {
+interface NavButtonProps {
+  to: string;
+  children: ReactNode;
+}
+const NavButton = ({ to, children }: NavButtonProps) => {
   const location = useLocation();
 
-  function isSelected(url) {
+  function isSelected(url: string) {
     return location.pathname === url;
   }
   return (

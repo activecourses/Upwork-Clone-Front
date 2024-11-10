@@ -43,7 +43,7 @@ const UserNavbar = () => {
   return <></>;
 };
 
-const Navbar = ({ isUser = false }) => {
+const Navbar = ({ isUser = false }: { isUser: boolean }) => {
   if (!isUser) return <NonUserNavbar />;
   return <UserNavbar />;
 };

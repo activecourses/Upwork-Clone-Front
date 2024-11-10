@@ -1,22 +1,36 @@
 import { Button, Grid, Link, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link as RouterLink, useParams } from 'react-router-dom';
 
 import { green, grey } from '@mui/material/colors';
 
+interface FormData {
+  lastname: string;
+  firstname: string;
+  email: string;
+  password: string;
+}
+
+interface FormErrors {
+  lastname?: string;
+  firstname?: string;
+  email?: string;
+  password?: string;
+}
+
 const SignupForm = () => {
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const { userType } = useParams();
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     firstname: '',
     lastname: '',
     email: '',
     password: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (validate()) {
       console.log('Form Submitted: ', formData);
@@ -25,7 +39,7 @@ const SignupForm = () => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -35,27 +49,26 @@ const SignupForm = () => {
   };
 
   // input validation function
-  const validatename = (name) => {
+  const validateName = (name: string) => {
     const nameRegex = /^[A-Za-z'-]+$/;
     return nameRegex.test(name);
   };
 
-  const validate = () => {
-    let totalErrors = {};
+  const validate = (): boolean => {
+    const totalErrors: FormErrors = {};
 
     if (!formData.lastname) {
-      totalErrors.lastname = 'last name is Required !!';
-    } else if (!validatename(formData.lastname)) {
+      totalErrors.lastname = 'Last name is required!';
+    } else if (!validateName(formData.lastname)) {
       totalErrors.lastname =
-        "last name shouldn't contain any numbers , spaces or special characters!";
+        "Last name shouldn't contain numbers, spaces, or special characters!";
     }
-    //--------------------------------------------------------------//
 
     if (!formData.firstname) {
-      totalErrors.firstname = 'firstname is Required !!';
-    } else if (!validatename(formData.firstname)) {
+      totalErrors.firstname = 'First name is required!';
+    } else if (!validateName(formData.firstname)) {
       totalErrors.firstname =
-        "first name shouldn't contain any numbers , spaces or special characters!";
+        "First name shouldn't contain numbers, spaces, or special characters!";
     }
 
     if (!formData.email) {
@@ -63,11 +76,13 @@ const SignupForm = () => {
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       totalErrors.email = 'Email is invalid';
     }
+
     if (!formData.password) {
       totalErrors.password = 'Password is required';
     } else if (formData.password.length < 6) {
       totalErrors.password = 'Password must be at least 6 characters';
     }
+
     setErrors(totalErrors);
     return Object.keys(totalErrors).length === 0;
   };

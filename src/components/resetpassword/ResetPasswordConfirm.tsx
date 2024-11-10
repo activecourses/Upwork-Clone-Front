@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { TextField, Button, Typography, Paper } from '@mui/material';
-import { useParams } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { Button, Paper, TextField, Typography } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
+import { FormEvent, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const ResetPasswordConfirm = () => {
   const { token } = useParams();
@@ -13,7 +13,7 @@ const ResetPasswordConfirm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (password.length < 6) {
       setError('Password must be at least 6 characters long');
@@ -29,7 +29,7 @@ const ResetPasswordConfirm = () => {
     }
   };
 
-  const updatePassword = async (password) => {
+  const updatePassword = async (password: string) => {
     try {
       const response = await fetch('/api/reset-password', {
         method: 'POST',
