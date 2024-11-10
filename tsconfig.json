@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2016", // Specify ECMAScript target version.
+    "module": "ESNext", // Set module system to CommonJS for Node.js compatibility.
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // Include standard library files for DOM and ESNext features.
+    "jsx": "react-jsx", // Use React JSX transform.
+    "allowSyntheticDefaultImports": true, // Allow default imports even if module doesn't have a default export.
+    "esModuleInterop": true, // Enables compatibility between CommonJS and ES modules.
+    "forceConsistentCasingInFileNames": true, // Enforce consistent casing in file names.
+    "strict": true, // Enable strict type checking options.
+    "skipLibCheck": true, // Skip type checking for library files (.d.ts).
+    "moduleResolution": "node", // Set module resolution strategy to Node.js.
+    "resolveJsonModule": true, // Enable importing of .json files.
+    "isolatedModules": true // Ensure each file can be transpiled in isolation.
+  },
+  "include": [
+    "src"
+  ], // Specify the root folders for your files.
+  "exclude": [
+    "node_modules",
+    "dist"
+  ] // Exclude unnecessary folders.
+}
