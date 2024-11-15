@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 /** TODO:
  * Login button
@@ -46,6 +47,9 @@ const UserNavbar = () => {
 const Navbar = ({ isUser = false }) => {
   if (!isUser) return <NonUserNavbar />;
   return <UserNavbar />;
+};
+Navbar.propTypes = {
+  isUser: PropTypes.bool,
 };
 
 export default Navbar;

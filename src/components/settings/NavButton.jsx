@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const NavButton = ({ to, children }) => {
   const location = useLocation();
@@ -36,4 +37,10 @@ const NavButton = ({ to, children }) => {
     </>
   );
 };
+
+NavButton.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
 export default NavButton;
