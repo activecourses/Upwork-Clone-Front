@@ -1,8 +1,17 @@
-/* eslint-disable react/prop-types */
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import { styled } from '@mui/system';
-
-const StyledCard = styled(Card)(({ isActive }) => ({
+import { ElementType, FC } from 'react';
+interface ClickableCardProps {
+  width: number;
+  height: number;
+  my: number;
+  text: string;
+  isHovered: boolean;
+  isactive: boolean;
+  onClick: () => void;
+  Icon: ElementType;
+}
+const StyledCard = styled(Card)(({ isActive }: { isActive: boolean }) => ({
   border: isActive ? '2px solid green' : '2px solid lightGrey',
   borderRadius: '12px',
   transition: 'transform 0.2s ease, border 0.3s ease',
@@ -14,7 +23,7 @@ const StyledCard = styled(Card)(({ isActive }) => ({
   },
 }));
 
-const ClickableCard = ({
+const ClickableCard: FC<ClickableCardProps> = ({
   width,
   height,
   my,

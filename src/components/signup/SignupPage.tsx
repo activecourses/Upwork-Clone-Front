@@ -1,16 +1,16 @@
-import { Button, Box, Container } from '@mui/material';
-import ClickableCard from './ClickableCard';
-import { useState } from 'react';
-import { green } from '@mui/material/colors';
 import TerminalRoundedIcon from '@mui/icons-material/TerminalRounded';
 import WorkOutlineRoundedIcon from '@mui/icons-material/WorkOutlineRounded';
+import { Box, Button, Container } from '@mui/material';
+import { green } from '@mui/material/colors';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ClickableCard from './ClickableCard';
 
 const SignupPage = () => {
   const [userType, setUserType] = useState('');
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
   const navigate = useNavigate();
-  const handleCardClick = (cardIndex) => {
+  const handleCardClick = (cardIndex: number | null) => {
     setActiveCard((prev) => (prev === cardIndex ? null : cardIndex));
   };
   const onSubmit = () => {
@@ -27,7 +27,7 @@ const SignupPage = () => {
           my={20}
           text={"I'm a freelancer looking for work"}
           isHovered={activeCard === null || activeCard === 0}
-          isActive={activeCard === 0}
+          isactive={activeCard === 0}
           onClick={() => {
             handleCardClick(0);
             setUserType('freelancer');
@@ -41,7 +41,7 @@ const SignupPage = () => {
           my={20}
           text={"I'm a client, hiring for a project"}
           isHovered={activeCard === null || activeCard === 1}
-          isActive={activeCard === 1}
+          isactive={activeCard === 1}
           onClick={() => {
             handleCardClick(1);
             setUserType('client');

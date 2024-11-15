@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Typography, Button, Paper } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Button, Paper, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const PasswordSent = () => {
@@ -64,8 +64,12 @@ const PasswordSent = () => {
           color='green'
           style={{ cursor: 'pointer', marginTop: '16px' }}
           onClick={() => navigate('/reset-password')}
-          onMouseEnter={(e) => (e.target.style.textDecoration = 'underline')}
-          onMouseLeave={(e) => (e.target.style.textDecoration = 'none')}
+          onMouseEnter={(e) =>
+            ((e.target as HTMLElement).style.textDecoration = 'underline')
+          }
+          onMouseLeave={(e) =>
+            ((e.target as HTMLElement).style.textDecoration = 'none')
+          }
         >
           Didn’t get an email?
         </Typography>

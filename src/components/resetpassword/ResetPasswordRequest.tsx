@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { TextField, Button, Typography, Paper } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const ResetPasswordRequest = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -23,9 +23,9 @@ const ResetPasswordRequest = () => {
     navigate('/password-sent');
   };
 
-  const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
+  const validateEmail = (email: string) => /\S+@\S+\.\S+/.test(email);
 
-  const sendResetEmail = async (email) => {
+  const sendResetEmail = async (email: string) => {
     try {
       const response = await fetch('/api/request-reset', {
         method: 'POST',
