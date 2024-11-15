@@ -14,7 +14,8 @@ import { SettingsPage } from './components/settings/SettingsPage';
 import HomePage from './components/home/HomePage';
 import { CssBaseline } from '@mui/material';
 
-createRoot(document.getElementById('root')).render(
+// non-null assertion operator (!), sure it won't be null
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />

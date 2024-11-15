@@ -21,7 +21,7 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 # Settings for JavaScript and JSX files
-[*.{js,jsx}]
+[*.{js,jsx,ts,tsx}]
 indent_size = 2
 
 # Settings for JSON files
