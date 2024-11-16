@@ -14,6 +14,10 @@ const Header = () => {
   const onClick = () => {
     navigate('/');
   };
+
+  // Example condition: check if a user is logged in
+  const isLoggedIn = true; // Set this dynamically based on user authentication status
+
   return (
     <Container>
       <AppBar
@@ -36,7 +40,7 @@ const Header = () => {
             onClick={onClick}
           />
         </Toolbar>
-        <Navbar />
+        <Navbar isUser={isLoggedIn} /> {/* This will pass 'true' if logged in, 'false' otherwise */}
       </AppBar>
     </Container>
   );
