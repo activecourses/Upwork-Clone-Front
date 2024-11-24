@@ -36,7 +36,7 @@ const Header = () => {
             onClick={onClick}
           />
         </Toolbar>
-        <Navbar />
+        <Navbar isUser={false} />
       </AppBar>
     </Container>
   );
