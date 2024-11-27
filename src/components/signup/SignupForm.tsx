@@ -2,14 +2,15 @@ import { Button, Grid, Link, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link as RouterLink, useParams } from 'react-router-dom';
-
+import './auth/signup-auth';
 import { green, grey } from '@mui/material/colors';
-
+import customAxios from '../../api/Signup/signup-auth';
 interface FormData {
   lastname: string;
   firstname: string;
   email: string;
   password: string;
+  role: string[];
 }
 
 interface FormErrors {
@@ -17,6 +18,7 @@ interface FormErrors {
   firstname?: string;
   email?: string;
   password?: string;
+  role?: string[];
 }
 
 const SignupForm = () => {
@@ -28,6 +30,7 @@ const SignupForm = () => {
     lastname: '',
     email: '',
     password: '',
+    role: [`${userType}`],
   });
 
   const handleSubmit = (e: FormEvent) => {
@@ -35,7 +38,24 @@ const SignupForm = () => {
     if (validate()) {
       console.log('Form Submitted: ', formData);
       console.log(`user type: ${userType}`);
+
       // POST REQUEST FOR THE BACKEND GOES HERE ....
+      const PostRequest = async () => {
+        try {
+          const response = await customAxios.post(
+            '/api/auth/register',
+            {
+              ...formData,
+            },
+            { withCredentials: true }
+          );
+          console.log('Signup Successful: ', response.data);
+        } catch (error) {
+          console.error('Signup Failed: ', error);
+        }
+      };
+      PostRequest();
+      //-------------------------//
     }
   };
 
