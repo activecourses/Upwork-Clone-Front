@@ -42,9 +42,13 @@ const SignupForm = () => {
       // POST REQUEST FOR THE BACKEND GOES HERE ....
       const PostRequest = async () => {
         try {
-          const response = await customAxios.post('/api/auth/register', {
-            ...formData,
-          });
+          const response = await customAxios.post(
+            '/api/auth/register',
+            {
+              ...formData,
+            },
+            { withCredentials: true }
+          );
           console.log('Signup Successful: ', response.data);
         } catch (error) {
           console.error('Signup Failed: ', error);
